@@ -3,6 +3,7 @@ const projectsData = [
     title: 'ScrapeFlow Automation',
     description:
       'A workflow-driven web scraping platform designed to automate data collection from discovery to extraction, cleanup, and export. It helps users run structured scraping pipelines with a cleaner operational flow and better data handoff efficiency.',
+    functionality: ['Visual Workflow Builder', 'Automated Data Extraction', 'Custom Export Options'],
     stack: ['React Flow', 'Next.js', 'Selenium', 'TailwindCSS'],
     duration: 'Feb - Mar 2026',
     githubUrl: 'https://github.com/asimbukc/ScrapeFlow-Automation',
@@ -11,6 +12,7 @@ const projectsData = [
     title: 'Trendzone',
     description:
       'An elegant e-commerce frontend focused on fast product discovery, smooth authentication, and a dependable shopping cart experience. Built to feel polished across mobile and desktop screens while keeping the purchase journey intuitive and conversion-friendly.',
+    functionality: ['Product Search & Filtering', 'Secure Authentication', 'Shopping Cart Management'],
     stack: ['React', 'Tanstack Query', 'Redux Toolkit Query', 'TailwindCSS'],
     duration: 'Mar 2026',
     githubUrl: 'https://github.com/asimbukc/trend-zone',
@@ -19,6 +21,7 @@ const projectsData = [
     title: 'Agent Marketplace',
     description:
       'A property-focused marketplace experience for real estate agents to browse listings, manage buyer-seller interactions, and streamline contact workflows. The interface is structured to make leads, listings, and agent communication more efficient in one place.',
+    functionality: ['Property Listings Management', 'Lead Tracking', 'In-app Communication'],
     stack: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'TailwindCSS'],
     duration: 'May - Jun 2026',
     githubUrl: 'https://github.com/asimbukc/agent-marketplace',
@@ -27,6 +30,7 @@ const projectsData = [
     title: 'DevForum',
     description:
       'A modern developer forum built for knowledge sharing, technical collaboration, and community-driven problem solving. It brings together reusable UI patterns, thoughtful discussion flow, and a clean environment for developers to learn and contribute.',
+    functionality: ['Discussion Threads', 'Code Snippet Sharing', 'User Reputation System'],
     stack: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'ShadCN', 'TailwindCSS'],
     duration: 'Jun 2026 - Present',
     githubUrl: 'https://github.com/asimbukc/devforum',
@@ -61,7 +65,7 @@ export function ProjectsSection() {
                 <p className="mt-4 text-[15px] leading-7 text-white/82">{project.description}</p>
 
                 <ul className="mt-6 flex flex-col gap-2 text-xs text-white/85">
-                  {project.stack.map((item) => (
+                  {project.functionality.map((item) => (
                     <li key={item}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
