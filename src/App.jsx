@@ -4,6 +4,7 @@ import { SkillsSection } from './components/SkillsSection'
 import { ProjectsSection } from './components/ProjectsSection'
 import { EducationSection } from './components/EducationSection'
 import { DiscoSection } from './components/DiscoSection'
+import { ExperienceSection } from './components/ExperienceSection'
 
 const techStack = ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Next.js', 'Nest Js', 'Tailwind CSS', 'PostgreSQL', 'RestAPI']
 
@@ -215,6 +216,7 @@ function App() {
           </section>
 
           <SkillsSection />
+          <ExperienceSection />
           <ProjectsSection />
           <EducationSection />
         </div>
