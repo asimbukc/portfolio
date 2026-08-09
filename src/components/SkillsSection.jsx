@@ -399,11 +399,10 @@ export function SkillsSection() {
                 key={tab.id}
                 type="button"
                 onClick={() => handleTabClick(tab.id)}
-                className={`rounded-xs border-white/10 px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                  activeTab === tab.id
+                className={`rounded-xs border-white/10 px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${activeTab === tab.id
                     ? 'bg-indigo-300 text-slate-950 '
                     : 'text-white/60 hover:text-white hover:bg-white/5'
-                }`}
+                  }`}
               >
                 {tab.label}
               </button>

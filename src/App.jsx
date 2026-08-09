@@ -150,7 +150,7 @@ function App() {
 
               <div className="mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-[#ff7b54] to-[#9b8cff]" />
 
-              <div className="mt-10 flex flex-wrap gap-5 sm:gap-6">
+              <div className="mt-10 flex flex-wrap items-center gap-5 sm:gap-6">
                 <div className="flex flex-col items-center">
                   <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
                     <img src="Mongo.svg" className="w-12" alt="MongoDB" />
@@ -177,6 +177,23 @@ function App() {
                     <img src="Node.svg" className="w-12" alt="Node" />
                   </div>
                   <span className="mt-2 font-bebas text-3xl text-white">N</span>
+                </div>
+                
+                <div className="ml-2 flex pb-8 sm:ml-4">
+                  <a
+                    href="/Asim_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full border border-white/20 bg-white/10 px-8 py-3.5 font-bebas text-2xl tracking-widest text-white shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-white/40 hover:bg-white/20 hover:text-[#ffb199]"
+                  >
+                    <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-150%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(150%)]">
+                      <div className="w-8 bg-white/10" />
+                    </div>
+                    <svg className="relative z-10 h-6 w-6 transition-transform group-hover:-translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    <span className="relative z-10 mt-1">RESUME</span>
+                  </a>
                 </div>
               </div>
             </div>

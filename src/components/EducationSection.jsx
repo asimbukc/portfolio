@@ -15,13 +15,13 @@ const educationItems = [
     description:
       'Modern web and mobile development technologies with practical training in building responsive applications and real world development projects.',
   },
-   {
+  {
     degree: 'Mobile App Development',
     university: 'NED Academy',
     logo: '/ned.png',
     duration: 'Sep 2024 - Nov 2024',
-  description:
-  'Comprehensive training in modern web and mobile app development, covering responsive design, full-stack technologies, and real-world projects that emphasize clean code, problem-solving and industry best practices.',
+    description:
+      'Comprehensive training in modern web and mobile app development, covering responsive design, full-stack technologies, and real-world projects that emphasize clean code, problem-solving and industry best practices.',
   },
 ]
 
