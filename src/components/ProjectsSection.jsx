@@ -55,9 +55,9 @@ export function ProjectsSection() {
           {projectsData.map((project) => (
             <article key={project.title} className="card w-full bg-base-100 shadow-sm">
               <div className="card-body">
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2 sm:flex-nowrap">
                   <h3 className="font-bebas text-[2rem] leading-none text-white sm:text-[2.35rem]">{project.title}</h3>
-                  <span className="font-roboto-condensed text-[10px] font-semibold uppercase tracking-[0.3em] text-[#9b8cff]">
+                  <span className="shrink-0 font-roboto-condensed text-[10px] font-semibold uppercase tracking-[0.3em] text-[#9b8cff] sm:mt-2">
                     {project.duration}
                   </span>
                 </div>
