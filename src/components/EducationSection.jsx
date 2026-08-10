@@ -29,7 +29,7 @@ const skills = ['MongoDB', 'Express.js', 'React', 'Node.js', 'Tailwind CSS', 'Po
 
 export function EducationSection() {
   return (
-    <section id="education" className="relative py-24 overflow-hidden bg-[#07111f] text-white">
+    <section id="education" className="relative py-24 text-white">
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-[#ff7b54]/15 via-[#9b8cff]/15 to-[#6df4ff]/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="relative mx-auto max-w-6xl px-4 md:px-6">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12">

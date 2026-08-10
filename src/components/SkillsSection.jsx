@@ -342,7 +342,7 @@ export function SkillsSection() {
   })
 
   return (
-    <section id="skills" className="relative py-24 bg-[#07111f] text-white overflow-hidden">
+    <section id="skills" className="relative py-24 text-white">
       {/* Ambient background glow effects */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-[#ff7b54]/15 via-[#9b8cff]/15 to-[#6df4ff]/10 rounded-full blur-[140px] pointer-events-none" />
 
