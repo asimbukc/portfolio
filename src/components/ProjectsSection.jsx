@@ -39,7 +39,7 @@ const projectsData = [
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="relative py-24 text-white">
+    <section id="projects" className="relative py-12 text-white">
       <div className="absolute left-1/2 top-1/4 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-[#38bdf8]/15 via-[#818cf8]/15 to-[#4f46e5]/10 blur-[140px]" />
 
       <div className="relative mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
