@@ -38,22 +38,36 @@ export function ExperienceSection() {
 
         <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {experienceData.map((exp) => (
-            <div className="card w-full bg-base-100 shadow-sm border border-white/10 hover:border-white/20 transition-colors duration-300" key={exp.company}>
-              <div className="card-body">
-                <span className="badge badge-xs badge-warning">{exp.duration}</span>
-                <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center gap-2 mt-2">
-                  <h2 className="text-3xl font-bold">{exp.company}</h2>
-                  <span className="text-sm lg:text-base font-medium bg-gradient-to-r from-[#38bdf8] to-[#818cf8] bg-clip-text text-transparent">{exp.role}</span>
+            <div key={exp.company} className="group h-[320px] w-full [perspective:1000px]">
+              <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                
+                {/* Front of Card */}
+                <div className="card absolute inset-0 w-full h-full bg-base-100 shadow-sm border border-white/10 [backface-visibility:hidden]">
+                  <div className="card-body">
+                    <div><span className="badge badge-xs badge-warning">{exp.duration}</span></div>
+                    <div className="flex flex-col items-start gap-1 mt-2">
+                      <h2 className="text-3xl font-bold">{exp.company}</h2>
+                      <span className="text-sm lg:text-base font-medium bg-gradient-to-r from-[#38bdf8] to-[#818cf8] bg-clip-text text-transparent">{exp.role}</span>
+                    </div>
+                    <p className="mt-2 text-sm text-white/80 leading-relaxed">{exp.description}</p>
+                  </div>
                 </div>
-                <p className="mt-2 text-sm text-white/80 leading-relaxed">{exp.description}</p>
-                <ul className="mt-4 flex flex-col gap-2 text-xs">
-                  {exp.projects.map((project, index) => (
-                    <li key={index}>
-                      <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                      <span>{project}</span>
-                    </li>
-                  ))}
-                </ul>
+
+                {/* Back of Card */}
+                <div className="card absolute inset-0 w-full h-full bg-base-100 shadow-sm border border-white/10 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                  <div className="card-body justify-center">
+                    <h4 className="font-bebas text-2xl text-white mb-4 tracking-widest bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#4f46e5] bg-clip-text text-transparent">Key Projects</h4>
+                    <ul className="flex flex-col gap-4 text-sm">
+                      {exp.projects.map((project, index) => (
+                        <li key={index} className="flex items-center text-white/80">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="size-5 me-3 inline-block text-success flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
+                          <span>{project}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
               </div>
             </div>
           ))}

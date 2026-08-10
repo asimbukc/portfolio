@@ -200,7 +200,7 @@ function App() {
                   className="relative z-10 w-[110vw] -mr-[25%] sm:w-[90vw] sm:-mr-[15%] lg:w-[70vw] lg:-mr-[10%]"
                   style={{ maskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)', WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)' }}
                 >
-                  <picture className="drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)]">
+                  <picture className="drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)] animate-image-fade-in">
                     <source srcSet="/asim.webp" type="image/webp" />
                     <img
                       src="/asim.png"
@@ -276,7 +276,7 @@ function App() {
               className="hidden xl:block absolute right-[-8%] top-[55%] z-10 w-[120vw] max-w-[590px] -translate-y-1/2"
               style={{ maskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)', WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)' }}
             >
-              <picture className="drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)]">
+              <picture className="drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)] animate-image-fade-in">
                 <source srcSet="/asim.webp" type="image/webp" />
                 <img
                   src="/asim.png"
