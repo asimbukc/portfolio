@@ -41,7 +41,30 @@ const experience = [
   },
 ]
 
+function useScrollProgress() {
+  const [progress, setProgress] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      if (docHeight > 0) {
+        setProgress((scrollY / docHeight) * 100)
+      }
+    }
+    
+    // Initial call
+    handleScroll()
+    
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return progress
+}
+
 function App() {
+  const scrollProgress = useScrollProgress()
   const [activeTech, setActiveTech] = useState(techStack[4])
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [displayTech, setDisplayTech] = useState(techStack[4])
@@ -112,6 +135,25 @@ function App() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#07111f] text-white">
+      {/* Scroll Progress Bar */}
+      <div 
+        className="fixed top-0 left-0 h-1 sm:h-1.5 bg-gradient-to-r from-[#38bdf8] to-[#818cf8] z-[100] transition-all duration-150 ease-out"
+        style={{ width: `${scrollProgress}%` }}
+      />
+
+      {/* Scroll to next section FAB */}
+      <button
+        onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
+        className={`fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-[100] flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-gradient-to-r from-[#38bdf8] to-[#818cf8] text-white shadow-[0_0_20px_rgba(56,189,248,0.4)] transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(56,189,248,0.6)] ${
+          scrollProgress < 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+        }`}
+        aria-label="Scroll to next section"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-7 sm:w-7 animate-bounce mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </button>
+      
       {introState !== 'home' && (
         <div className="absolute inset-0 z-20 transition-opacity duration-700 ease-in-out opacity-100">
           <DiscoSection isClosing={introState === 'closing'} />
@@ -126,7 +168,7 @@ function App() {
             <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:48px_48px]" />
 
             <div className="relative z-20 mx-auto w-[92%] max-w-3xl mt-12 py-24 xl:mt-0 xl:absolute xl:left-16 xl:top-[55%] xl:-translate-y-1/2 xl:mx-0 xl:py-0">
-              <h2 className="font-bebas text-2xl tracking-[0.25em] text-[#ffb199] sm:text-3xl md:text-4xl lg:text-5xl">
+              <h2 className="font-bebas text-2xl tracking-[0.25em] text-[#7dd3fc] sm:text-3xl md:text-4xl lg:text-5xl">
                 Full Stack Developer
               </h2>
 
@@ -136,14 +178,14 @@ function App() {
 
               <div className="relative mt-2 sm:mt-4 h-10 sm:h-12 md:h-14 lg:h-16">
                 <span
-                  className={`absolute left-0 top-0 inline-block font-bebas text-2xl text-[#d8cfff] transition-opacity duration-[900ms] ease-out sm:text-3xl md:text-4xl lg:text-5xl ${activeLayer === 'A' ? 'opacity-100' : 'opacity-0'
+                  className={`absolute left-0 top-0 inline-block font-bebas text-2xl text-[#bae6fd] transition-opacity duration-[900ms] ease-out sm:text-3xl md:text-4xl lg:text-5xl ${activeLayer === 'A' ? 'opacity-100' : 'opacity-0'
                     }`}
                 >
                   {layerA}
                   <span className="block mt-2 sm:mt-3 h-1 w-full rounded-full bg-gradient-to-r from-[#38bdf8] to-[#818cf8]" />
                 </span>
                 <span
-                  className={`absolute left-0 top-0 inline-block font-bebas text-2xl text-[#d8cfff] transition-opacity duration-[900ms] ease-out sm:text-3xl md:text-4xl lg:text-5xl ${activeLayer === 'B' ? 'opacity-100' : 'opacity-0'
+                  className={`absolute left-0 top-0 inline-block font-bebas text-2xl text-[#bae6fd] transition-opacity duration-[900ms] ease-out sm:text-3xl md:text-4xl lg:text-5xl ${activeLayer === 'B' ? 'opacity-100' : 'opacity-0'
                     }`}
                 >
                   {layerB}
