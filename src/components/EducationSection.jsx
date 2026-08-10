@@ -35,7 +35,7 @@ const educationItems = [
   },
 ]
 
-const skills = ['MongoDB', 'Express.js', 'React', 'Node.js', 'Next Js', 'Flutter', 'Dart', 'Tailwind CSS', 'PostgreSQL', 'RestAPI', 'Next.js', 'Git', 'Github', 'Docker', 'Networking']
+const skills = ['MongoDB', 'Express.js', 'React', 'Node.js', 'Next Js', 'Flutter', 'Dart', 'C++', 'Java', 'DSA', 'REST API', 'OOP', 'Cyber Security', 'Tailwind CSS', 'PostgreSQL', 'RestAPI', 'Next.js', 'Git', 'Github', 'Docker', 'SQA', 'Software Engineering', 'Networking']
 
 export function EducationSection() {
   return (

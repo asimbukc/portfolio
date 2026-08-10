@@ -8,14 +8,14 @@ const experienceData = [
   },
   {
     company: 'Saylani Tech Limited',
-    role: 'Junior Full Stack Developer',
+    role: 'Software Engineer',
     duration: 'May 2026 – Jul 2026',
-    description: 'Developed full-stack applications using the MERN stack, including REST APIs, authentication, database schemas, and responsive UIs.',
+    description: 'Developed full stack applications using the MERN stack, including REST APIs, authentication, database schemas, and responsive UIs.',
     projects: ['Learning Management System', 'Shopify Theme Customization', 'Online Shopping Platform'],
   },
   {
     company: 'Z.A IT Park',
-    role: 'Frontend React Developer',
+    role: 'Web Developer Intern',
     duration: 'Feb 2026 – Apr 2026',
     description: 'Built responsive web applications with React.js and Tailwind CSS, implementing CRUD operations, validation, and scalable UI components.',
     projects: ['Ecommerce Platform', 'Task Tracking Platform', 'Corporate Landing Page'],
@@ -40,7 +40,7 @@ export function ExperienceSection() {
           {experienceData.map((exp) => (
             <div key={exp.company} className="group h-[320px] w-full [perspective:1000px]">
               <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                
+
                 {/* Front of Card */}
                 <div className="card absolute inset-0 w-full h-full bg-base-100 shadow-sm border border-white/10 [backface-visibility:hidden]">
                   <div className="card-body">
