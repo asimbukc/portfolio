@@ -136,20 +136,20 @@ function App() {
 
               <div className="relative mt-2 sm:mt-4 h-10 sm:h-12 md:h-14 lg:h-16">
                 <span
-                  className={`absolute inset-0 font-bebas text-2xl text-[#d8cfff] transition-opacity duration-[900ms] ease-out sm:text-3xl md:text-4xl lg:text-5xl ${activeLayer === 'A' ? 'opacity-100' : 'opacity-0'
+                  className={`absolute left-0 top-0 inline-block font-bebas text-2xl text-[#d8cfff] transition-opacity duration-[900ms] ease-out sm:text-3xl md:text-4xl lg:text-5xl ${activeLayer === 'A' ? 'opacity-100' : 'opacity-0'
                     }`}
                 >
                   {layerA}
+                  <span className="block mt-2 sm:mt-3 h-1 w-full rounded-full bg-gradient-to-r from-[#ff7b54] to-[#9b8cff]" />
                 </span>
                 <span
-                  className={`absolute inset-0 font-bebas text-2xl text-[#d8cfff] transition-opacity duration-[900ms] ease-out sm:text-3xl md:text-4xl lg:text-5xl ${activeLayer === 'B' ? 'opacity-100' : 'opacity-0'
+                  className={`absolute left-0 top-0 inline-block font-bebas text-2xl text-[#d8cfff] transition-opacity duration-[900ms] ease-out sm:text-3xl md:text-4xl lg:text-5xl ${activeLayer === 'B' ? 'opacity-100' : 'opacity-0'
                     }`}
                 >
                   {layerB}
+                  <span className="block mt-2 sm:mt-3 h-1 w-full rounded-full bg-gradient-to-r from-[#ff7b54] to-[#9b8cff]" />
                 </span>
               </div>
-
-              <div className="mt-3 sm:mt-4 h-1 w-16 sm:w-20 rounded-full bg-gradient-to-r from-[#ff7b54] to-[#9b8cff]" />
 
               <div className="xl:hidden relative mt-12 mb-16 flex justify-end">
                 <div className="absolute right-[-20%] top-1/2 h-[120vw] w-[120vw] -translate-y-1/2 rounded-full border border-white/10 bg-[radial-gradient(circle_at_30%_30%,_rgba(255,123,84,0.9),_rgba(46,11,93,0.95)_58%,_rgba(7,17,31,1)_100%)] shadow-[0_0_120px_rgba(0,0,0,0.32)] sm:right-[-10%] sm:h-[90vw] sm:w-[90vw] lg:h-[70vw] lg:w-[70vw]" />

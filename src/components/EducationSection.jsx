@@ -8,7 +8,15 @@ const educationItems = [
       'Focused on core IT concepts including programming, database, networking and software engineering with hands on academic projects and practical lab work.',
   },
   {
-    degree: 'Mobile and Web Development',
+    degree: 'Flutter App Development',
+    university: 'Saylani Mass IT',
+    logo: '/smit.png',
+    duration: 'Aug 2026 - Present',
+    description:
+      'Modern Flutter development technologies with practical training in building cross platform, responsive mobile applications and real world development projects.',
+  },
+  {
+    degree: 'Web App Development',
     university: 'Saylani Mass IT',
     logo: '/smit.png',
     duration: 'Nov 2024 - Feb 2026',
@@ -25,7 +33,7 @@ const educationItems = [
   },
 ]
 
-const skills = ['MongoDB', 'Express.js', 'React', 'Node.js', 'Tailwind CSS', 'PostgreSQL', 'RestAPI', 'Next.js', 'Flutter', 'Github', 'Docker', 'Networking']
+const skills = ['MongoDB', 'Express.js', 'React', 'Node.js', 'Next Js', 'Flutter', 'Dart', 'Tailwind CSS', 'PostgreSQL', 'RestAPI', 'Next.js', 'Git', 'Github', 'Docker', 'Networking']
 
 export function EducationSection() {
   return (
@@ -55,7 +63,13 @@ export function EducationSection() {
                       </svg>
                     </div>
                     <p className="leading-relaxed text-justify text-sm text-white/90">
-                      I&apos;m a MERN stack developer who lives at the intersection of clean code and high performance design. I specialize in building full stack applications where a fluid React frontend meets a rugged Node and Express architecture, all powered by the scalability of MongoDB. Whether I&apos;m mapping out the real time data flow for the Quantum Analytics Engine or fine tuning a responsive UI, I&apos;m obsessed with the HOW as much as the WHAT ensuring every click feels snappy and every backend query is optimized for speed. I don&apos;t just build functional tools, I build digital experiences that are as intuitive for the user as they are robust under the hood.
+                      I'm a Full Stack Developer building SaaS products & custom web applications using the MERN stack. MongoDB, Express, React & Node.js are my core expertise.
+                      <br />
+                      I work across the full stack, from building RESTful APIs & GraphQL schemas to implementing authentication systems & designing backend architectures that are built to scale. I care about writing clean & maintainable code that another developer can understand & work with months down the road.
+                      <br />
+                      Right now, I'm focused heavily on Flutter & Shopify development. I'm increasingly interested in more than just making a feature work. I want to understand why it should be built a certain way, how the pieces fit together & how to design systems that can evolve without becoming difficult to maintain.
+                      <br />
+                      I approach every project with the mindset that the code should be well structured, maintainable & capable of standing up to serious engineering review. I care about understanding the bigger picture, making thoughtful technical decisions & continuously improving the way I build software.
                     </p>
                   </div>
                 </div>
