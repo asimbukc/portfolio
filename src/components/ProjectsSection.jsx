@@ -3,6 +3,7 @@ const projectsData = [
     title: 'ScrapeFlow Automation',
     description:
       'A workflow-driven web scraping platform designed to automate data collection from discovery to extraction, cleanup, and export. It helps users run structured scraping pipelines with a cleaner operational flow and better data handoff efficiency.',
+    functionality: ['Visual Workflow Builder', 'Automated Data Extraction', 'Custom Export Options'],
     stack: ['React Flow', 'Next.js', 'Selenium', 'TailwindCSS'],
     duration: 'Feb - Mar 2026',
     githubUrl: 'https://github.com/asimbukc/ScrapeFlow-Automation',
@@ -11,6 +12,7 @@ const projectsData = [
     title: 'Trendzone',
     description:
       'An elegant e-commerce frontend focused on fast product discovery, smooth authentication, and a dependable shopping cart experience. Built to feel polished across mobile and desktop screens while keeping the purchase journey intuitive and conversion-friendly.',
+    functionality: ['Product Search & Filtering', 'Secure Authentication', 'Shopping Cart Management'],
     stack: ['React', 'Tanstack Query', 'Redux Toolkit Query', 'TailwindCSS'],
     duration: 'Mar 2026',
     githubUrl: 'https://github.com/asimbukc/trend-zone',
@@ -19,6 +21,7 @@ const projectsData = [
     title: 'Agent Marketplace',
     description:
       'A property-focused marketplace experience for real estate agents to browse listings, manage buyer-seller interactions, and streamline contact workflows. The interface is structured to make leads, listings, and agent communication more efficient in one place.',
+    functionality: ['Property Listings Management', 'Lead Tracking', 'In-app Communication'],
     stack: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'TailwindCSS'],
     duration: 'May - Jun 2026',
     githubUrl: 'https://github.com/asimbukc/agent-marketplace',
@@ -27,6 +30,7 @@ const projectsData = [
     title: 'DevForum',
     description:
       'A modern developer forum built for knowledge sharing, technical collaboration, and community-driven problem solving. It brings together reusable UI patterns, thoughtful discussion flow, and a clean environment for developers to learn and contribute.',
+    functionality: ['Discussion Threads', 'Code Snippet Sharing', 'User Reputation System'],
     stack: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'ShadCN', 'TailwindCSS'],
     duration: 'Jun 2026 - Present',
     githubUrl: 'https://github.com/asimbukc/devforum',
@@ -35,13 +39,13 @@ const projectsData = [
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="relative overflow-hidden bg-[#07111f] py-24 text-white">
-      <div className="absolute left-1/2 top-1/4 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-[#ff7b54]/15 via-[#9b8cff]/15 to-[#6df4ff]/10 blur-[140px]" />
+    <section id="projects" className="relative py-12 text-white">
+      <div className="absolute left-1/2 top-1/4 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-[#38bdf8]/15 via-[#818cf8]/15 to-[#4f46e5]/10 blur-[140px]" />
 
       <div className="relative mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <h2 className="mt-6 font-bebas text-5xl tracking-wide text-white sm:text-6xl lg:text-7xl">
-            <span className="bg-gradient-to-r from-[#ff7b54] via-[#9b8cff] to-[#6df4ff] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#4f46e5] bg-clip-text text-transparent">
               COMPLETED PROJECTS
             </span>
           </h2>
@@ -51,9 +55,9 @@ export function ProjectsSection() {
           {projectsData.map((project) => (
             <article key={project.title} className="card w-full bg-base-100 shadow-sm">
               <div className="card-body">
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2 sm:flex-nowrap">
                   <h3 className="font-bebas text-[2rem] leading-none text-white sm:text-[2.35rem]">{project.title}</h3>
-                  <span className="font-roboto-condensed text-[10px] font-semibold uppercase tracking-[0.3em] text-[#9b8cff]">
+                  <span className="shrink-0 font-roboto-condensed text-[10px] font-semibold uppercase tracking-[0.3em] text-[#818cf8] sm:mt-2">
                     {project.duration}
                   </span>
                 </div>
@@ -61,7 +65,7 @@ export function ProjectsSection() {
                 <p className="mt-4 text-[15px] leading-7 text-white/82">{project.description}</p>
 
                 <ul className="mt-6 flex flex-col gap-2 text-xs text-white/85">
-                  {project.stack.map((item) => (
+                  {project.functionality.map((item) => (
                     <li key={item}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

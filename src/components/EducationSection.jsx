@@ -1,3 +1,5 @@
+import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+
 const educationItems = [
   {
     degree: 'BS Information Technology',
@@ -8,33 +10,41 @@ const educationItems = [
       'Focused on core IT concepts including programming, database, networking and software engineering with hands on academic projects and practical lab work.',
   },
   {
-    degree: 'Mobile and Web Development',
+    degree: 'Flutter App Development',
+    university: 'Saylani Mass IT',
+    logo: '/smit.png',
+    duration: 'Aug 2026 - Present',
+    description:
+      'Modern Flutter development technologies with practical training in building cross platform, responsive mobile applications and real world development projects.',
+  },
+  {
+    degree: 'Web App Development',
     university: 'Saylani Mass IT',
     logo: '/smit.png',
     duration: 'Nov 2024 - Feb 2026',
     description:
       'Modern web and mobile development technologies with practical training in building responsive applications and real world development projects.',
   },
-   {
+  {
     degree: 'Mobile App Development',
     university: 'NED Academy',
     logo: '/ned.png',
     duration: 'Sep 2024 - Nov 2024',
-  description:
-  'Comprehensive training in modern web and mobile app development, covering responsive design, full-stack technologies, and real-world projects that emphasize clean code, problem-solving and industry best practices.',
+    description:
+      'Comprehensive training in modern web and mobile app development, covering responsive design, full-stack technologies, and real-world projects that emphasize clean code, problem-solving and industry best practices.',
   },
 ]
 
-const skills = ['MongoDB', 'Express.js', 'React', 'Node.js', 'Tailwind CSS', 'PostgreSQL', 'RestAPI', 'Next.js', 'Flutter', 'Github', 'Docker', 'Networking']
+const skills = ['MongoDB', 'Express.js', 'React', 'Node.js', 'Next Js', 'Flutter', 'Dart', 'C++', 'Java', 'DSA', 'REST API', 'OOP', 'Cyber Security', 'Tailwind CSS', 'PostgreSQL', 'RestAPI', 'Next.js', 'Git', 'Github', 'Docker', 'SQA', 'Software Engineering', 'Networking']
 
 export function EducationSection() {
   return (
-    <section id="education" className="relative py-24 overflow-hidden bg-[#07111f] text-white">
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-[#ff7b54]/15 via-[#9b8cff]/15 to-[#6df4ff]/10 rounded-full blur-[140px] pointer-events-none" />
+    <section id="education" className="relative py-12 text-white">
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-[#38bdf8]/15 via-[#818cf8]/15 to-[#4f46e5]/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="relative mx-auto max-w-6xl px-4 md:px-6">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12">
           <h2 className="mt-2 font-bebas text-5xl sm:text-6xl lg:text-7xl tracking-wide text-white">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff7b54] via-[#9b8cff] to-[#6df4ff]">ABOUT ME & EDUCATION</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#4f46e5]">ABOUT ME & EDUCATION</span>
           </h2>
         </div>
 
@@ -55,7 +65,13 @@ export function EducationSection() {
                       </svg>
                     </div>
                     <p className="leading-relaxed text-justify text-sm text-white/90">
-                      I&apos;m a MERN stack developer who lives at the intersection of clean code and high performance design. I specialize in building full stack applications where a fluid React frontend meets a rugged Node and Express architecture, all powered by the scalability of MongoDB. Whether I&apos;m mapping out the real time data flow for the Quantum Analytics Engine or fine tuning a responsive UI, I&apos;m obsessed with the HOW as much as the WHAT ensuring every click feels snappy and every backend query is optimized for speed. I don&apos;t just build functional tools, I build digital experiences that are as intuitive for the user as they are robust under the hood.
+                      I'm a Full Stack Developer building SaaS products & custom web applications using the MERN stack. MongoDB, Express, React & Node.js are my core expertise.
+                      <br />
+                      I work across the full stack, from building RESTful APIs & GraphQL schemas to implementing authentication systems & designing backend architectures that are built to scale. I care about writing clean & maintainable code that another developer can understand & work with months down the road.
+                      <br />
+                      Right now, I'm focused heavily on Flutter & Shopify development. I'm increasingly interested in more than just making a feature work. I want to understand why it should be built a certain way, how the pieces fit together & how to design systems that can evolve without becoming difficult to maintain.
+                      <br />
+                      I approach every project with the mindset that the code should be well structured, maintainable & capable of standing up to serious engineering review. I care about understanding the bigger picture, making thoughtful technical decisions & continuously improving the way I build software.
                     </p>
                   </div>
                 </div>
@@ -120,9 +136,20 @@ export function EducationSection() {
 
           <div className="w-full flex flex-col justify-start items-end text-right px-4">
             <div className="relative inline-block">
-              <h2 className="text-xl font-bold text-white">Asim Khan</h2>
+              <h2 className="text-xl font-bold text-white">M Asim Khan</h2>
             </div>
             <p className="text-sm text-white/75">Full Stack Developer</p>
+            <div className="flex gap-4 mt-3">
+              <a href="https://github.com/asimbukc" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-white hover:scale-110 transition-all duration-300">
+                <FaGithub size={20} />
+              </a>
+              <a href="https://linkedin.com/in/asimbukc" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-[#0a66c2] hover:scale-110 transition-all duration-300">
+                <FaLinkedin size={20} />
+              </a>
+              <a href="https://wa.me/923412662732" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-[#25D366] hover:scale-110 transition-all duration-300">
+                <FaWhatsapp size={22} />
+              </a>
+            </div>
           </div>
         </div>
       </div>
