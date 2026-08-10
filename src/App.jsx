@@ -145,7 +145,7 @@ function App() {
       <button
         onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
         className={`fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-[100] flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-gradient-to-r from-[#38bdf8] to-[#818cf8] text-white shadow-[0_0_20px_rgba(56,189,248,0.4)] transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(56,189,248,0.6)] ${
-          scrollProgress < 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+          (scrollProgress < 2 && introState === 'home') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
         }`}
         aria-label="Scroll to next section"
       >
