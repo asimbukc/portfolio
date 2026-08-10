@@ -146,7 +146,7 @@ export function EducationSection() {
               <a href="https://linkedin.com/in/asimbukc" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-[#0a66c2] hover:scale-110 transition-all duration-300">
                 <FaLinkedin size={20} />
               </a>
-              <a href="https://wa.me/923711005643" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-[#25D366] hover:scale-110 transition-all duration-300">
+              <a href="https://wa.me/923412662732" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-[#25D366] hover:scale-110 transition-all duration-300">
                 <FaWhatsapp size={22} />
               </a>
             </div>

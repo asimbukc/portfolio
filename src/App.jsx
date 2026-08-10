@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { FaFileAlt, FaWhatsapp } from 'react-icons/fa'
 import './App.css'
 import { SkillsSection } from './components/SkillsSection'
 import { ProjectsSection } from './components/ProjectsSection'
@@ -195,18 +196,23 @@ function App() {
 
               <div className="xl:hidden relative mt-12 mb-16 flex justify-end">
                 <div className="absolute right-[-20%] top-1/2 h-[120vw] w-[120vw] -translate-y-1/2 rounded-full border border-white/10 bg-[radial-gradient(circle_at_30%_30%,_rgba(56,189,248,0.9),_rgba(46,11,93,0.95)_58%,_rgba(7,17,31,1)_100%)] shadow-[0_0_120px_rgba(0,0,0,0.32)] sm:right-[-10%] sm:h-[90vw] sm:w-[90vw] lg:h-[70vw] lg:w-[70vw]" />
-                <picture className="relative z-10 w-[110vw] -mr-[25%] drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)] sm:w-[90vw] sm:-mr-[15%] lg:w-[70vw] lg:-mr-[10%]">
-                  <source srcSet="/asim.webp" type="image/webp" />
-                  <img
-                    src="/asim.png"
-                    alt="Asim Khan"
-                    className="h-auto w-full"
-                    fetchPriority="high"
-                    decoding="async"
-                    width="590"
-                    height="720"
-                  />
-                </picture>
+                <div
+                  className="relative z-10 w-[110vw] -mr-[25%] sm:w-[90vw] sm:-mr-[15%] lg:w-[70vw] lg:-mr-[10%]"
+                  style={{ maskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)', WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)' }}
+                >
+                  <picture className="drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)]">
+                    <source srcSet="/asim.webp" type="image/webp" />
+                    <img
+                      src="/asim.png"
+                      alt="Asim Khan"
+                      className="h-auto w-full"
+                      fetchPriority="high"
+                      decoding="async"
+                      width="590"
+                      height="720"
+                    />
+                  </picture>
+                </div>
               </div>
 
               <div className="mt-6 sm:mt-10 flex flex-col items-start gap-6 sm:gap-8">
@@ -240,14 +246,25 @@ function App() {
                   </div>
                 </div>
 
-                <div className="flex pb-6 sm:pb-8">
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6 pb-6 sm:pb-8">
                   <a
                     href="/Asim_Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn rounded-3xl bg-indigo-300 text-black border-none transition-colors duration-300 hover:bg-indigo-400 hover:text-black font-bebas text-xl sm:text-2xl tracking-widest px-12 flex items-center gap-2 sm:gap-3"
+                    className="inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-full bg-[#38bdf8]/10 border border-[#38bdf8]/35 text-[#38bdf8] backdrop-blur-md font-bebas text-xl sm:text-2xl tracking-widest transition-colors duration-300 hover:bg-[#38bdf8]/25 hover:border-[#38bdf8] hover:text-white"
                   >
-                    <span className="mt-1">RESUME</span>
+                    <FaFileAlt className="text-lg" />
+                    <span className="mt-0.5">RESUME</span>
+                  </a>
+
+                  <a
+                    href="https://wa.me/923412662732"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2.5 px-7 py-3 rounded-full bg-[#25D366]/10 border border-[#25D366]/35 text-[#25D366] backdrop-blur-md font-bebas text-xl sm:text-2xl tracking-widest transition-colors duration-300 hover:bg-[#25D366]/25 hover:border-[#25D366] hover:text-white"
+                  >
+                    <FaWhatsapp className="text-xl sm:text-2xl" />
+                    <span className="mt-0.5">CONTACT ME</span>
                   </a>
                 </div>
               </div>
@@ -255,18 +272,23 @@ function App() {
 
             <div className="hidden xl:block absolute right-0 top-1/2 h-[78vw] w-[78vw] max-h-[950px] max-w-[950px] -translate-y-1/2 translate-x-1/2 rounded-full border border-white/10 bg-[radial-gradient(circle_at_30%_30%,_rgba(56,189,248,0.9),_rgba(46,11,93,0.95)_58%,_rgba(7,17,31,1)_100%)] shadow-[0_0_120px_rgba(0,0,0,0.32)]" />
 
-            <picture className="hidden xl:block absolute right-[-8%] top-[55%] z-10 w-[120vw] max-w-[590px] -translate-y-1/2 drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)]">
-              <source srcSet="/asim.webp" type="image/webp" />
-              <img
-                src="/asim.png"
-                alt="Asim Khan"
-                className="h-auto w-full"
-                fetchPriority="high"
-                decoding="async"
-                width="590"
-                height="720"
-              />
-            </picture>
+            <div
+              className="hidden xl:block absolute right-[-8%] top-[55%] z-10 w-[120vw] max-w-[590px] -translate-y-1/2"
+              style={{ maskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)', WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)' }}
+            >
+              <picture className="drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)]">
+                <source srcSet="/asim.webp" type="image/webp" />
+                <img
+                  src="/asim.png"
+                  alt="Asim Khan"
+                  className="h-auto w-full"
+                  fetchPriority="high"
+                  decoding="async"
+                  width="590"
+                  height="720"
+                />
+              </picture>
+            </div>
           </section>
 
           <SkillsSection />
