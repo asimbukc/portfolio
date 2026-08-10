@@ -122,10 +122,10 @@ function App() {
         <div className="min-h-screen bg-[#07111f] text-white">
           {/* Original Hero Section */}
           <section className="relative min-h-screen overflow-hidden bg-[#07111f] flex flex-col justify-center xl:block">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,123,84,0.28),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(94,89,255,0.3),_transparent_35%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.28),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(94,89,255,0.3),_transparent_35%)]" />
             <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:48px_48px]" />
 
-            <div className="relative z-20 mx-auto w-[92%] max-w-3xl py-24 xl:absolute xl:left-16 xl:top-1/2 xl:-translate-y-1/2 xl:mx-0 xl:py-0">
+            <div className="relative z-20 mx-auto w-[92%] max-w-3xl mt-12 py-24 xl:mt-0 xl:absolute xl:left-16 xl:top-[55%] xl:-translate-y-1/2 xl:mx-0 xl:py-0">
               <h2 className="font-bebas text-2xl tracking-[0.25em] text-[#ffb199] sm:text-3xl md:text-4xl lg:text-5xl">
                 Full Stack Developer
               </h2>
@@ -140,19 +140,19 @@ function App() {
                     }`}
                 >
                   {layerA}
-                  <span className="block mt-2 sm:mt-3 h-1 w-full rounded-full bg-gradient-to-r from-[#ff7b54] to-[#9b8cff]" />
+                  <span className="block mt-2 sm:mt-3 h-1 w-full rounded-full bg-gradient-to-r from-[#38bdf8] to-[#818cf8]" />
                 </span>
                 <span
                   className={`absolute left-0 top-0 inline-block font-bebas text-2xl text-[#d8cfff] transition-opacity duration-[900ms] ease-out sm:text-3xl md:text-4xl lg:text-5xl ${activeLayer === 'B' ? 'opacity-100' : 'opacity-0'
                     }`}
                 >
                   {layerB}
-                  <span className="block mt-2 sm:mt-3 h-1 w-full rounded-full bg-gradient-to-r from-[#ff7b54] to-[#9b8cff]" />
+                  <span className="block mt-2 sm:mt-3 h-1 w-full rounded-full bg-gradient-to-r from-[#38bdf8] to-[#818cf8]" />
                 </span>
               </div>
 
               <div className="xl:hidden relative mt-12 mb-16 flex justify-end">
-                <div className="absolute right-[-20%] top-1/2 h-[120vw] w-[120vw] -translate-y-1/2 rounded-full border border-white/10 bg-[radial-gradient(circle_at_30%_30%,_rgba(255,123,84,0.9),_rgba(46,11,93,0.95)_58%,_rgba(7,17,31,1)_100%)] shadow-[0_0_120px_rgba(0,0,0,0.32)] sm:right-[-10%] sm:h-[90vw] sm:w-[90vw] lg:h-[70vw] lg:w-[70vw]" />
+                <div className="absolute right-[-20%] top-1/2 h-[120vw] w-[120vw] -translate-y-1/2 rounded-full border border-white/10 bg-[radial-gradient(circle_at_30%_30%,_rgba(56,189,248,0.9),_rgba(46,11,93,0.95)_58%,_rgba(7,17,31,1)_100%)] shadow-[0_0_120px_rgba(0,0,0,0.32)] sm:right-[-10%] sm:h-[90vw] sm:w-[90vw] lg:h-[70vw] lg:w-[70vw]" />
                 <picture className="relative z-10 w-[110vw] -mr-[25%] drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)] sm:w-[90vw] sm:-mr-[15%] lg:w-[70vw] lg:-mr-[10%]">
                   <source srcSet="/asim.webp" type="image/webp" />
                   <img
@@ -167,55 +167,51 @@ function App() {
                 </picture>
               </div>
 
-              <div className="mt-6 sm:mt-10 flex flex-wrap items-center gap-4 sm:gap-5 md:gap-6">
-                <div className="flex flex-col items-center">
-                  <div className="flex h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
-                    <img src="Mongo.svg" className="w-8 sm:w-10 md:w-12" alt="MongoDB" />
+              <div className="mt-6 sm:mt-10 flex flex-col items-start gap-6 sm:gap-8">
+                <div className="flex flex-wrap items-center gap-4 sm:gap-5 md:gap-6">
+                  <div className="flex flex-col items-center">
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
+                      <img src="Mongo.svg" className="w-6 sm:w-8 md:w-10" alt="MongoDB" />
+                    </div>
+                    <span className="mt-1 sm:mt-2 font-bebas text-lg sm:text-xl md:text-2xl text-white">M</span>
                   </div>
-                  <span className="mt-1 sm:mt-2 font-bebas text-xl sm:text-2xl md:text-3xl text-white">M</span>
+
+                  <div className="flex flex-col items-center">
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
+                      <img src="Express.svg" className="w-6 sm:w-8 md:w-10" alt="Express" />
+                    </div>
+                    <span className="mt-1 sm:mt-2 font-bebas text-lg sm:text-xl md:text-2xl text-white">E</span>
+                  </div>
+
+                  <div className="flex flex-col items-center">
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
+                      <img src="React.svg" className="w-6 sm:w-8 md:w-10" alt="React" />
+                    </div>
+                    <span className="mt-1 sm:mt-2 font-bebas text-lg sm:text-xl md:text-2xl text-white">R</span>
+                  </div>
+
+                  <div className="flex flex-col items-center">
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
+                      <img src="Node.svg" className="w-6 sm:w-8 md:w-10" alt="Node" />
+                    </div>
+                    <span className="mt-1 sm:mt-2 font-bebas text-lg sm:text-xl md:text-2xl text-white">N</span>
+                  </div>
                 </div>
 
-                <div className="flex flex-col items-center">
-                  <div className="flex h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
-                    <img src="Express.svg" className="w-8 sm:w-10 md:w-12" alt="Express" />
-                  </div>
-                  <span className="mt-1 sm:mt-2 font-bebas text-xl sm:text-2xl md:text-3xl text-white">E</span>
-                </div>
-
-                <div className="flex flex-col items-center">
-                  <div className="flex h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
-                    <img src="React.svg" className="w-8 sm:w-10 md:w-12" alt="React" />
-                  </div>
-                  <span className="mt-1 sm:mt-2 font-bebas text-xl sm:text-2xl md:text-3xl text-white">R</span>
-                </div>
-
-                <div className="flex flex-col items-center">
-                  <div className="flex h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
-                    <img src="Node.svg" className="w-8 sm:w-10 md:w-12" alt="Node" />
-                  </div>
-                  <span className="mt-1 sm:mt-2 font-bebas text-xl sm:text-2xl md:text-3xl text-white">N</span>
-                </div>
-                
-                <div className="ml-1 sm:ml-2 md:ml-4 flex pb-6 sm:pb-8">
+                <div className="flex pb-6 sm:pb-8">
                   <a
                     href="/Asim_Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative inline-flex items-center justify-center gap-2 sm:gap-3 overflow-hidden rounded-full border border-white/20 bg-white/10 px-6 py-2.5 sm:px-8 sm:py-3.5 font-bebas text-xl sm:text-2xl tracking-widest text-white shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-white/40 hover:bg-white/20 hover:text-[#ffb199]"
+                    className="btn rounded-3xl bg-indigo-300 text-black border-none transition-colors duration-300 hover:bg-indigo-400 hover:text-black font-bebas text-xl sm:text-2xl tracking-widest px-12 flex items-center gap-2 sm:gap-3"
                   >
-                    <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-150%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(150%)]">
-                      <div className="w-8 bg-white/10" />
-                    </div>
-                    <svg className="relative z-10 h-5 w-5 sm:h-6 sm:w-6 transition-transform group-hover:-translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    <span className="relative z-10 mt-1">RESUME</span>
+                    <span className="mt-1">RESUME</span>
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="hidden xl:block absolute right-0 top-1/2 h-[78vw] w-[78vw] max-h-[950px] max-w-[950px] -translate-y-1/2 translate-x-1/2 rounded-full border border-white/10 bg-[radial-gradient(circle_at_30%_30%,_rgba(255,123,84,0.9),_rgba(46,11,93,0.95)_58%,_rgba(7,17,31,1)_100%)] shadow-[0_0_120px_rgba(0,0,0,0.32)]" />
+            <div className="hidden xl:block absolute right-0 top-1/2 h-[78vw] w-[78vw] max-h-[950px] max-w-[950px] -translate-y-1/2 translate-x-1/2 rounded-full border border-white/10 bg-[radial-gradient(circle_at_30%_30%,_rgba(56,189,248,0.9),_rgba(46,11,93,0.95)_58%,_rgba(7,17,31,1)_100%)] shadow-[0_0_120px_rgba(0,0,0,0.32)]" />
 
             <picture className="hidden xl:block absolute right-[-8%] top-[55%] z-10 w-[120vw] max-w-[590px] -translate-y-1/2 drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)]">
               <source srcSet="/asim.webp" type="image/webp" />

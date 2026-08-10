@@ -26,11 +26,12 @@ body {
 
 * {
   box-sizing: border-box;
+  cursor: default;
 }
 
 ::selection {
-  background: #ff7b54;
-  color: #fff;
+  background: transparent;
+  color: #db2777;
 }
 
 /* Animations for marquee */

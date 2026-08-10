@@ -20,7 +20,7 @@ export function DiscoSection({ isClosing = false }) {
         isClosing ? 'opacity-0' : 'opacity-100'
       }`}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,123,84,0.14),_transparent_45%),radial-gradient(circle_at_center,_rgba(155,140,255,0.12),_transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(56,189,248,0.14),_transparent_45%),radial-gradient(circle_at_center,_rgba(155,140,255,0.12),_transparent_60%)]" />
       <div className="relative mx-auto flex h-screen w-full max-w-7xl items-center justify-center px-2 md:px-4">
         <div className="relative h-[100vh] w-full max-w-[980px]">
           <img

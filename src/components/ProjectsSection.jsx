@@ -40,12 +40,12 @@ const projectsData = [
 export function ProjectsSection() {
   return (
     <section id="projects" className="relative py-24 text-white">
-      <div className="absolute left-1/2 top-1/4 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-[#ff7b54]/15 via-[#9b8cff]/15 to-[#6df4ff]/10 blur-[140px]" />
+      <div className="absolute left-1/2 top-1/4 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-[#38bdf8]/15 via-[#818cf8]/15 to-[#4f46e5]/10 blur-[140px]" />
 
       <div className="relative mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <h2 className="mt-6 font-bebas text-5xl tracking-wide text-white sm:text-6xl lg:text-7xl">
-            <span className="bg-gradient-to-r from-[#ff7b54] via-[#9b8cff] to-[#6df4ff] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#4f46e5] bg-clip-text text-transparent">
               COMPLETED PROJECTS
             </span>
           </h2>
@@ -57,7 +57,7 @@ export function ProjectsSection() {
               <div className="card-body">
                 <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2 sm:flex-nowrap">
                   <h3 className="font-bebas text-[2rem] leading-none text-white sm:text-[2.35rem]">{project.title}</h3>
-                  <span className="shrink-0 font-roboto-condensed text-[10px] font-semibold uppercase tracking-[0.3em] text-[#9b8cff] sm:mt-2">
+                  <span className="shrink-0 font-roboto-condensed text-[10px] font-semibold uppercase tracking-[0.3em] text-[#818cf8] sm:mt-2">
                     {project.duration}
                   </span>
                 </div>

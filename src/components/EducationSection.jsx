@@ -38,11 +38,11 @@ const skills = ['MongoDB', 'Express.js', 'React', 'Node.js', 'Next Js', 'Flutter
 export function EducationSection() {
   return (
     <section id="education" className="relative py-24 text-white">
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-[#ff7b54]/15 via-[#9b8cff]/15 to-[#6df4ff]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-[#38bdf8]/15 via-[#818cf8]/15 to-[#4f46e5]/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="relative mx-auto max-w-6xl px-4 md:px-6">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12">
           <h2 className="mt-2 font-bebas text-5xl sm:text-6xl lg:text-7xl tracking-wide text-white">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff7b54] via-[#9b8cff] to-[#6df4ff]">ABOUT ME & EDUCATION</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#4f46e5]">ABOUT ME & EDUCATION</span>
           </h2>
         </div>
 
@@ -134,7 +134,7 @@ export function EducationSection() {
 
           <div className="w-full flex flex-col justify-start items-end text-right px-4">
             <div className="relative inline-block">
-              <h2 className="text-xl font-bold text-white">Asim Khan</h2>
+              <h2 className="text-xl font-bold text-white">M Asim Khan</h2>
             </div>
             <p className="text-sm text-white/75">Full Stack Developer</p>
           </div>

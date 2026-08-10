@@ -344,13 +344,13 @@ export function SkillsSection() {
   return (
     <section id="skills" className="relative py-24 text-white">
       {/* Ambient background glow effects */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-[#ff7b54]/15 via-[#9b8cff]/15 to-[#6df4ff]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-[#38bdf8]/15 via-[#818cf8]/15 to-[#4f46e5]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
           <h2 className="mt-6 font-bebas text-5xl sm:text-6xl lg:text-7xl tracking-wide text-white">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff7b54] via-[#9b8cff] to-[#6df4ff]">TECH STACK</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#4f46e5]">TECH STACK</span>
           </h2>
         </div>
 

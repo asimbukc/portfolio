@@ -30,7 +30,7 @@ export const ExpressLogo = ({ className = "w-8 h-8" }) => (
     <text x="64" y="78" textAnchor="middle" fill="#FFFFFF" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="42" letterSpacing="-1">
       ex
     </text>
-    <circle cx="102" cy="34" r="6" fill="#6df4ff" />
+    <circle cx="102" cy="34" r="6" fill="#38bdf8" />
   </svg>
 )
 

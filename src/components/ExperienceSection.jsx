@@ -25,12 +25,12 @@ const experienceData = [
 export function ExperienceSection() {
   return (
     <section id="experience" className="relative py-24 text-white">
-      <div className="absolute right-1/2 top-1/4 h-[500px] w-[800px] translate-x-1/2 rounded-full bg-gradient-to-tr from-[#ff7b54]/15 via-[#9b8cff]/15 to-[#6df4ff]/10 blur-[140px]" />
+      <div className="absolute right-1/2 top-1/4 h-[500px] w-[800px] translate-x-1/2 rounded-full bg-gradient-to-tr from-[#38bdf8]/15 via-[#818cf8]/15 to-[#4f46e5]/10 blur-[140px]" />
 
       <div className="relative mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <h2 className="mt-6 font-bebas text-5xl tracking-wide text-white sm:text-6xl lg:text-7xl">
-            <span className="bg-gradient-to-r from-[#ff7b54] via-[#9b8cff] to-[#6df4ff] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#4f46e5] bg-clip-text text-transparent">
               EXPERIENCE
             </span>
           </h2>
@@ -47,10 +47,10 @@ export function ExperienceSection() {
                     <h3 className="font-bebas text-[2.2rem] leading-none text-white">{exp.company}</h3>
                     
                     <div className="flex flex-col gap-1 mt-1">
-                      <span className="text-[15px] font-semibold bg-gradient-to-r from-[#ffb199] to-[#9b8cff] bg-clip-text text-transparent">
+                      <span className="text-[15px] font-semibold bg-gradient-to-r from-[#7dd3fc] to-[#818cf8] bg-clip-text text-transparent">
                         {exp.role}
                       </span>
-                      <span className="font-roboto-condensed text-[11px] font-semibold uppercase tracking-[0.2em] text-[#9b8cff]/70">
+                      <span className="font-roboto-condensed text-[11px] font-semibold uppercase tracking-[0.2em] text-[#818cf8]/70">
                         {exp.duration}
                       </span>
                     </div>
@@ -60,12 +60,12 @@ export function ExperienceSection() {
                 </article>
 
                 {/* Back of Card */}
-                <article className="absolute inset-0 flex flex-col justify-center h-full w-full rounded-2xl bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#2e0b5d]/60 via-[#07111f] to-[#07111f] border border-[#9b8cff]/30 p-8 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                <article className="absolute inset-0 flex flex-col justify-center h-full w-full rounded-2xl bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#2e0b5d]/60 via-[#07111f] to-[#07111f] border border-[#818cf8]/30 p-8 [transform:rotateY(180deg)] [backface-visibility:hidden]">
                   <h4 className="font-bebas text-3xl text-white mb-6 tracking-wider text-center">Key Projects</h4>
                   <ul className="flex flex-col gap-3 w-full">
                     {exp.projects.map((project, idx) => (
                       <li key={idx} className="flex items-center gap-4 bg-white/5 hover:bg-white/10 transition-colors border border-white/5 rounded-xl py-3 px-4 text-[14px] font-medium text-white/90">
-                        <div className="h-2 w-2 rounded-full bg-gradient-to-r from-[#ff7b54] to-[#9b8cff]" />
+                        <div className="h-2 w-2 rounded-full bg-gradient-to-r from-[#38bdf8] to-[#818cf8]" />
                         {project}
                       </li>
                     ))}
