@@ -140,13 +140,13 @@ export function EducationSection() {
             </div>
             <p className="text-sm text-white/75">Full Stack Developer</p>
             <div className="flex gap-4 mt-3">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-white hover:scale-110 transition-all duration-300">
+              <a href="https://github.com/asimbukc" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-white hover:scale-110 transition-all duration-300">
                 <FaGithub size={20} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-[#0a66c2] hover:scale-110 transition-all duration-300">
+              <a href="https://linkedin.com/in/asimbukc" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-[#0a66c2] hover:scale-110 transition-all duration-300">
                 <FaLinkedin size={20} />
               </a>
-              <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-[#25D366] hover:scale-110 transition-all duration-300">
+              <a href="https://wa.me/923711005643" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-[#25D366] hover:scale-110 transition-all duration-300">
                 <FaWhatsapp size={22} />
               </a>
             </div>
