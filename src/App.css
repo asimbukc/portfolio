@@ -26,11 +26,12 @@ body {
 
 * {
   box-sizing: border-box;
+  cursor: default;
 }
 
 ::selection {
-  background: #ff7b54;
-  color: #fff;
+  background: transparent;
+  color: #db2777;
 }
 
 /* Animations for marquee */
@@ -75,17 +76,25 @@ body {
   animation: fadeIn 0.3s ease-out forwards;
 }
 
-/* Custom scrollbars */
+@keyframes imageFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-image-fade-in {
+  opacity: 0;
+  animation: imageFadeIn 3s ease-out 0.5s forwards;
+}
+
+/* Hide browser scrollbar */
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #07111f;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 123, 84, 0.4);
+  display: none; /* Chrome, Safari, Opera */
 }

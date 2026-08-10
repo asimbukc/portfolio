@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
+import { FaFileAlt, FaWhatsapp } from 'react-icons/fa'
 import './App.css'
 import { SkillsSection } from './components/SkillsSection'
 import { ProjectsSection } from './components/ProjectsSection'
 import { EducationSection } from './components/EducationSection'
 import { DiscoSection } from './components/DiscoSection'
+import { ExperienceSection } from './components/ExperienceSection'
 
 const techStack = ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Next.js', 'Nest Js', 'Tailwind CSS', 'PostgreSQL', 'RestAPI']
 
@@ -40,7 +42,30 @@ const experience = [
   },
 ]
 
+function useScrollProgress() {
+  const [progress, setProgress] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      if (docHeight > 0) {
+        setProgress((scrollY / docHeight) * 100)
+      }
+    }
+    
+    // Initial call
+    handleScroll()
+    
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return progress
+}
+
 function App() {
+  const scrollProgress = useScrollProgress()
   const [activeTech, setActiveTech] = useState(techStack[4])
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [displayTech, setDisplayTech] = useState(techStack[4])
@@ -111,6 +136,25 @@ function App() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#07111f] text-white">
+      {/* Scroll Progress Bar */}
+      <div 
+        className="fixed top-0 left-0 h-1 sm:h-1.5 bg-gradient-to-r from-[#38bdf8] to-[#818cf8] z-[100] transition-all duration-150 ease-out"
+        style={{ width: `${scrollProgress}%` }}
+      />
+
+      {/* Scroll to next section FAB */}
+      <button
+        onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
+        className={`fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-[100] flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-gradient-to-r from-[#38bdf8] to-[#818cf8] text-white shadow-[0_0_20px_rgba(56,189,248,0.4)] transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(56,189,248,0.6)] ${
+          (scrollProgress < 2 && introState === 'home') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+        }`}
+        aria-label="Scroll to next section"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-7 sm:w-7 animate-bounce mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </button>
+      
       {introState !== 'home' && (
         <div className="absolute inset-0 z-20 transition-opacity duration-700 ease-in-out opacity-100">
           <DiscoSection isClosing={introState === 'closing'} />
@@ -120,84 +164,135 @@ function App() {
       {introState === 'home' && (
         <div className="min-h-screen bg-[#07111f] text-white">
           {/* Original Hero Section */}
-          <section className="relative min-h-screen overflow-hidden bg-[#07111f]">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,123,84,0.28),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(94,89,255,0.3),_transparent_35%)]" />
+          <section className="relative min-h-screen overflow-hidden bg-[#07111f] flex flex-col justify-center xl:block">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.28),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(94,89,255,0.3),_transparent_35%)]" />
             <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:48px_48px]" />
 
-            <div className="absolute left-6 top-1/2 z-20 w-[92%] max-w-3xl -translate-y-1/2 md:left-16">
-              <h2 className="font-bebas text-3xl tracking-[0.25em] text-[#ffb199] sm:text-4xl lg:text-5xl">
+            <div className="relative z-20 mx-auto w-[92%] max-w-3xl mt-12 py-24 xl:mt-0 xl:absolute xl:left-16 xl:top-[55%] xl:-translate-y-1/2 xl:mx-0 xl:py-0">
+              <h2 className="font-bebas text-2xl tracking-[0.25em] text-[#7dd3fc] sm:text-3xl md:text-4xl lg:text-5xl">
                 Full Stack Developer
               </h2>
 
-              <h1 className="mt-3 font-bebas text-[4.5rem] leading-none text-white sm:text-[6rem] md:text-[8rem] lg:text-[9rem]">
+              <h1 className="mt-2 sm:mt-3 font-bebas text-6xl leading-none text-white sm:text-[6rem] md:text-[8rem] lg:text-[9rem]">
                 M ASIM KHAN
               </h1>
 
-              <div className="relative mt-4 h-12 sm:h-14 lg:h-16">
+              <div className="relative mt-2 sm:mt-4 h-10 sm:h-12 md:h-14 lg:h-16">
                 <span
-                  className={`absolute inset-0 font-bebas text-3xl text-[#d8cfff] transition-opacity duration-[900ms] ease-out sm:text-4xl lg:text-5xl ${activeLayer === 'A' ? 'opacity-100' : 'opacity-0'
+                  className={`absolute left-0 top-0 inline-block font-bebas text-2xl text-[#bae6fd] transition-opacity duration-[900ms] ease-out sm:text-3xl md:text-4xl lg:text-5xl ${activeLayer === 'A' ? 'opacity-100' : 'opacity-0'
                     }`}
                 >
                   {layerA}
+                  <span className="block mt-2 sm:mt-3 h-1 w-full rounded-full bg-gradient-to-r from-[#38bdf8] to-[#818cf8]" />
                 </span>
                 <span
-                  className={`absolute inset-0 font-bebas text-3xl text-[#d8cfff] transition-opacity duration-[900ms] ease-out sm:text-4xl lg:text-5xl ${activeLayer === 'B' ? 'opacity-100' : 'opacity-0'
+                  className={`absolute left-0 top-0 inline-block font-bebas text-2xl text-[#bae6fd] transition-opacity duration-[900ms] ease-out sm:text-3xl md:text-4xl lg:text-5xl ${activeLayer === 'B' ? 'opacity-100' : 'opacity-0'
                     }`}
                 >
                   {layerB}
+                  <span className="block mt-2 sm:mt-3 h-1 w-full rounded-full bg-gradient-to-r from-[#38bdf8] to-[#818cf8]" />
                 </span>
               </div>
 
-              <div className="mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-[#ff7b54] to-[#9b8cff]" />
+              <div className="xl:hidden relative mt-12 mb-16 flex justify-end">
+                <div className="absolute right-[-20%] top-1/2 h-[120vw] w-[120vw] -translate-y-1/2 rounded-full border border-white/10 bg-[radial-gradient(circle_at_30%_30%,_rgba(56,189,248,0.9),_rgba(46,11,93,0.95)_58%,_rgba(7,17,31,1)_100%)] shadow-[0_0_120px_rgba(0,0,0,0.32)] sm:right-[-10%] sm:h-[90vw] sm:w-[90vw] lg:h-[70vw] lg:w-[70vw]" />
+                <div
+                  className="relative z-10 w-[110vw] -mr-[25%] sm:w-[90vw] sm:-mr-[15%] lg:w-[70vw] lg:-mr-[10%]"
+                  style={{ maskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)', WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)' }}
+                >
+                  <picture className="drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)] animate-image-fade-in">
+                    <source srcSet="/asim.webp" type="image/webp" />
+                    <img
+                      src="/asim.png"
+                      alt="Asim Khan"
+                      className="h-auto w-full"
+                      fetchPriority="high"
+                      decoding="async"
+                      width="590"
+                      height="720"
+                    />
+                  </picture>
+                </div>
+              </div>
 
-              <div className="mt-10 flex flex-wrap gap-5 sm:gap-6">
-                <div className="flex flex-col items-center">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
-                    <img src="Mongo.svg" className="w-12" alt="MongoDB" />
+              <div className="mt-6 sm:mt-10 flex flex-col items-start gap-6 sm:gap-8">
+                <div className="flex flex-wrap items-center gap-4 sm:gap-5 md:gap-6">
+                  <div className="flex flex-col items-center">
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
+                      <img src="Mongo.svg" className="w-6 sm:w-8 md:w-10" alt="MongoDB" />
+                    </div>
+                    <span className="mt-1 sm:mt-2 font-bebas text-lg sm:text-xl md:text-2xl text-white">M</span>
                   </div>
-                  <span className="mt-2 font-bebas text-3xl text-white">M</span>
+
+                  <div className="flex flex-col items-center">
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
+                      <img src="Express.svg" className="w-6 sm:w-8 md:w-10" alt="Express" />
+                    </div>
+                    <span className="mt-1 sm:mt-2 font-bebas text-lg sm:text-xl md:text-2xl text-white">E</span>
+                  </div>
+
+                  <div className="flex flex-col items-center">
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
+                      <img src="React.svg" className="w-6 sm:w-8 md:w-10" alt="React" />
+                    </div>
+                    <span className="mt-1 sm:mt-2 font-bebas text-lg sm:text-xl md:text-2xl text-white">R</span>
+                  </div>
+
+                  <div className="flex flex-col items-center">
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
+                      <img src="Node.svg" className="w-6 sm:w-8 md:w-10" alt="Node" />
+                    </div>
+                    <span className="mt-1 sm:mt-2 font-bebas text-lg sm:text-xl md:text-2xl text-white">N</span>
+                  </div>
                 </div>
 
-                <div className="flex flex-col items-center">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
-                    <img src="Express.svg" className="w-12" alt="Express" />
-                  </div>
-                  <span className="mt-2 font-bebas text-3xl text-white">E</span>
-                </div>
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6 pb-6 sm:pb-8">
+                  <a
+                    href="/Asim_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-full bg-[#38bdf8]/10 border border-[#38bdf8]/35 text-[#38bdf8] backdrop-blur-md font-bebas text-xl sm:text-2xl tracking-widest transition-colors duration-300 hover:bg-[#38bdf8]/25 hover:border-[#38bdf8] hover:text-white"
+                  >
+                    <FaFileAlt className="text-lg" />
+                    <span className="mt-0.5">RESUME</span>
+                  </a>
 
-                <div className="flex flex-col items-center">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
-                    <img src="React.svg" className="w-12" alt="React" />
-                  </div>
-                  <span className="mt-2 font-bebas text-3xl text-white">R</span>
-                </div>
-
-                <div className="flex flex-col items-center">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm">
-                    <img src="Node.svg" className="w-12" alt="Node" />
-                  </div>
-                  <span className="mt-2 font-bebas text-3xl text-white">N</span>
+                  <a
+                    href="https://wa.me/923412662732"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2.5 px-7 py-3 rounded-full bg-[#25D366]/10 border border-[#25D366]/35 text-[#25D366] backdrop-blur-md font-bebas text-xl sm:text-2xl tracking-widest transition-colors duration-300 hover:bg-[#25D366]/25 hover:border-[#25D366] hover:text-white"
+                  >
+                    <FaWhatsapp className="text-xl sm:text-2xl" />
+                    <span className="mt-0.5">CONTACT ME</span>
+                  </a>
                 </div>
               </div>
             </div>
 
-            <div className="absolute right-0 top-1/2 h-[78vw] w-[78vw] max-h-[950px] max-w-[950px] -translate-y-1/2 translate-x-1/2 rounded-full border border-white/10 bg-[radial-gradient(circle_at_30%_30%,_rgba(255,123,84,0.9),_rgba(46,11,93,0.95)_58%,_rgba(7,17,31,1)_100%)] shadow-[0_0_120px_rgba(0,0,0,0.32)]" />
+            <div className="hidden xl:block absolute right-0 top-1/2 h-[78vw] w-[78vw] max-h-[950px] max-w-[950px] -translate-y-1/2 translate-x-1/2 rounded-full border border-white/10 bg-[radial-gradient(circle_at_30%_30%,_rgba(56,189,248,0.9),_rgba(46,11,93,0.95)_58%,_rgba(7,17,31,1)_100%)] shadow-[0_0_120px_rgba(0,0,0,0.32)]" />
 
-            <picture className="absolute right-[-8%] top-[55%] z-10 w-[120vw] max-w-[590px] -translate-y-1/2 drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)]">
-              <source srcSet="/asim.webp" type="image/webp" />
-              <img
-                src="/asim.png"
-                alt="Asim Khan"
-                className="h-auto w-full"
-                fetchPriority="high"
-                decoding="async"
-                width="590"
-                height="720"
-              />
-            </picture>
+            <div
+              className="hidden xl:block absolute right-[-8%] top-[55%] z-10 w-[120vw] max-w-[590px] -translate-y-1/2"
+              style={{ maskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)', WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)' }}
+            >
+              <picture className="drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)] animate-image-fade-in">
+                <source srcSet="/asim.webp" type="image/webp" />
+                <img
+                  src="/asim.png"
+                  alt="Asim Khan"
+                  className="h-auto w-full"
+                  fetchPriority="high"
+                  decoding="async"
+                  width="590"
+                  height="720"
+                />
+              </picture>
+            </div>
           </section>
 
           <SkillsSection />
+          <ExperienceSection />
           <ProjectsSection />
           <EducationSection />
         </div>

@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import {
   ReactLogo,
   NextjsLogo,
@@ -26,7 +27,7 @@ const skillsData = [
     name: 'Next.js',
     category: 'frontend',
     level: 'EXPERT',
-    experience: '3+ Years',
+    experience: '8+ Months',
     color: '#ffffff',
     Icon: NextjsLogo,
     badge: 'Most Popular',
@@ -40,7 +41,7 @@ const skillsData = [
     name: 'React.js',
     category: 'frontend',
     level: 'EXPERT',
-    experience: '4+ Years',
+    experience: '6+ Months',
     color: '#61DAFB',
     Icon: ReactLogo,
     badge: 'Most Popular',
@@ -54,7 +55,7 @@ const skillsData = [
     name: 'Node.js',
     category: 'backend',
     level: 'EXPERT',
-    experience: '4+ Years',
+    experience: '1.5+ Years',
     color: '#339933',
     Icon: NodejsLogo,
     badge: 'Core Engine',
@@ -68,7 +69,7 @@ const skillsData = [
     name: 'Express.js',
     category: 'backend',
     level: 'EXPERT',
-    experience: '4+ Years',
+    experience: '8+ Months',
     color: '#00F0FF',
     Icon: ExpressLogo,
     badge: 'Core API',
@@ -82,7 +83,7 @@ const skillsData = [
     name: 'MongoDB',
     category: 'database',
     level: 'ADVANCED',
-    experience: '3+ Years',
+    experience: '6+ Months',
     color: '#13AA52',
     Icon: MongoLogo,
     badge: 'NoSQL DB',
@@ -96,7 +97,7 @@ const skillsData = [
     name: 'TypeScript',
     category: 'frontend',
     level: 'ADVANCED',
-    experience: '3+ Years',
+    experience: '1+ Year',
     color: '#3178C6',
     Icon: TypescriptLogo,
     badge: 'Type Safety',
@@ -110,7 +111,7 @@ const skillsData = [
     name: 'Tailwind CSS',
     category: 'frontend',
     level: 'EXPERT',
-    experience: '3+ Years',
+    experience: '1.5+ Years',
     color: '#38BDF8',
     Icon: TailwindLogo,
     badge: 'Most Popular',
@@ -124,7 +125,7 @@ const skillsData = [
     name: 'PostgreSQL',
     category: 'database',
     level: 'PROFICIENT',
-    experience: '2+ Years',
+    experience: '2 Years',
     color: '#336791',
     Icon: PostgresLogo,
     badge: 'SQL Database',
@@ -138,7 +139,7 @@ const skillsData = [
     name: 'RESTful APIs',
     category: 'backend',
     level: 'EXPERT',
-    experience: '4+ Years',
+    experience: '6+ Months',
     color: '#0D9488',
     Icon: RestApiLogo,
     badge: 'Architecture',
@@ -152,7 +153,7 @@ const skillsData = [
     name: 'Docker',
     category: 'database',
     level: 'PROFICIENT',
-    experience: '2+ Years',
+    experience: '1+ Year',
     color: '#1D63ED',
     Icon: DockerLogo,
     badge: 'DevOps',
@@ -166,7 +167,7 @@ const skillsData = [
     name: 'Git & GitHub',
     category: 'database',
     level: 'EXPERT',
-    experience: '4+ Years',
+    experience: '2 Years',
     color: '#F05032',
     Icon: GitLogo,
     badge: 'Version Control',
@@ -180,7 +181,7 @@ const skillsData = [
     name: 'Redux Toolkit',
     category: 'frontend',
     level: 'ADVANCED',
-    experience: '2+ Years',
+    experience: '8+ Months',
     color: '#764ABC',
     Icon: ReduxLogo,
     badge: 'State Mgmt',
@@ -194,7 +195,7 @@ const skillsData = [
     name: 'Redis',
     category: 'database',
     level: 'ADVANCED',
-    experience: '2+ Years',
+    experience: '2 Years',
     color: '#DC382D',
     Icon: RedisLogo,
     badge: 'Caching',
@@ -208,7 +209,7 @@ const skillsData = [
     name: 'BullMQ',
     category: 'backend',
     level: 'ADVANCED',
-    experience: '2+ Years',
+    experience: '2 Years',
     color: '#F97316',
     Icon: BullMqLogo,
     badge: 'Job Queue',
@@ -222,7 +223,7 @@ const skillsData = [
     name: 'Prisma',
     category: 'database',
     level: 'ADVANCED',
-    experience: '2+ Years',
+    experience: '8+ Months',
     color: '#38BDF8',
     Icon: PrismaLogo,
     badge: 'ORM',
@@ -230,20 +231,6 @@ const skillsData = [
     highlights: ['Schema-first Modeling', 'Migrations & Seeding', 'Typed Queries', 'Postgres & Mongo Wiring'],
     mutedItem: 'Edge-safe query helpers',
     projectsCount: 11,
-  },
-  {
-    id: 'uiux',
-    name: 'UI/UX Design',
-    category: 'frontend',
-    level: 'ADVANCED',
-    experience: '3+ Years',
-    color: '#F43F5E',
-    Icon: UiUxLogo,
-    badge: 'Design System',
-    description: 'Designing intuitive user interfaces and design systems.',
-    highlights: ['Design System Tokens', 'Interactive Prototypes', 'Micro-Animations', 'Accessibility (a11y)'],
-    mutedItem: 'Figma Auto-layout Tokens',
-    projectsCount: 18,
   },
 ]
 
@@ -294,43 +281,95 @@ export function SkillsSection() {
     })
   }
 
-  // PROBLEM WITH THE PREVIOUS ATTEMPT: reacting to the shrink with
-  // React state happens one render behind. By the time useLayoutEffect
-  // measured the new (shorter) height and called setSpacerHeight, the
-  // browser may have already clamped/jumped the scroll position during
-  // the render that shrank the grid. React state is just too slow for
-  // this — it can't stop a browser-level scroll clamp from happening
-  // in between renders.
-  //
-  // FIX: mutate the DOM directly, synchronously, in the click handler —
-  // BEFORE setActiveTab ever runs. We lock the grid's min-height to its
-  // current (tall) height right then and there. That way, when React
-  // re-renders with fewer cards a moment later, the grid box never
-  // actually gets shorter on screen (min-height holds it open), so
-  // there is no shrink for the browser to react to, and nothing to clamp.
-  //
-  // Once the user actually scrolls, we release the min-height back to
-  // normal so the page doesn't keep dead empty space at the bottom.
-  const gridRef = useRef(null)
-
   const handleTabClick = (tabId) => {
-    if (gridRef.current) {
-      const currentHeight = gridRef.current.offsetHeight
-      gridRef.current.style.transition = 'min-height 0.25s ease'
-      gridRef.current.style.minHeight = `${currentHeight}px`
-    }
     setActiveTab(tabId)
+    // Reset scroll position when tab changes
+    if (carouselRef.current) {
+      carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' })
+    }
+  }
+
+  const carouselRef = useRef(null)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(true)
+
+  const checkScroll = () => {
+    if (carouselRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current
+      setCanScrollLeft(scrollLeft > 0)
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1)
+    }
   }
 
   useEffect(() => {
-    const releaseMinHeight = () => {
-      if (gridRef.current) {
-        gridRef.current.style.minHeight = ''
-      }
+    checkScroll()
+  }, [activeTab, searchQuery])
+
+  const scrollPrev = () => {
+    if (carouselRef.current) {
+      const cardWidth = carouselRef.current.firstElementChild?.clientWidth || 300
+      const gap = 32 // 2rem (gap-8)
+      carouselRef.current.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' })
     }
-    window.addEventListener('scroll', releaseMinHeight, { passive: true })
-    return () => window.removeEventListener('scroll', releaseMinHeight)
-  }, [])
+  }
+
+  const scrollNext = () => {
+    if (carouselRef.current) {
+      const cardWidth = carouselRef.current.firstElementChild?.clientWidth || 300
+      const gap = 32
+      carouselRef.current.scrollBy({ left: (cardWidth + gap), behavior: 'smooth' })
+    }
+  }
+
+  const renderCard = (skill, isHidden = false) => {
+    const Icon = skill.Icon
+    const currentHeart = heartState[skill.id] ?? { liked: false, count: 224 }
+
+    return (
+      <div 
+        className="card w-full bg-base-100 shadow-sm" 
+        key={isHidden ? `hidden-${skill.id}` : skill.id}
+        aria-hidden={isHidden ? 'true' : undefined}
+      >
+        <div className="card-body">
+          <span className="badge badge-xs badge-warning">{skill.badge}</span>
+          <div className="flex justify-between">
+            <h2 className="text-3xl font-bold">{skill.name}</h2>
+            <span className="text-xl">{skill.experience}</span>
+          </div>
+          <ul className="mt-6 flex flex-col gap-2 text-xs">
+            {skill.highlights.slice(0, 4).map((highlight, index) => (
+              <li key={index}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
+                <span>{highlight}</span>
+              </li>
+            ))}
+            <li className="opacity-50">
+              <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-base-content/50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
+              <span className="line-through">{skill.mutedItem}</span>
+            </li>
+            <li className="opacity-50">
+              <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-base-content/50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
+              <span className="line-through">{skill.projectsCount}+ expert implementations</span>
+            </li>
+          </ul>
+          <div className="mt-6">
+            <button
+              type="button"
+              onClick={isHidden ? undefined : () => handleHeartClick(skill.id)}
+              tabIndex={isHidden ? -1 : 0}
+              className="btn bg-indigo-300 text-black rounded-xs btn-block transition-colors duration-300 hover:bg-indigo-400 hover:text-red-600 flex items-center justify-center gap-2"
+              aria-pressed={currentHeart.liked}
+            >
+              <span className="text-lg leading-none">{currentHeart.liked ? '♥' : '♡'}</span>
+              <span className="text-sm font-semibold">Send a Heart</span>
+              <span className="text-sm font-semibold">{currentHeart.count}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   const filteredSkills = skillsData.filter((skill) => {
     const matchesTab = activeTab === 'all' || skill.category === activeTab
@@ -342,15 +381,15 @@ export function SkillsSection() {
   })
 
   return (
-    <section id="skills" className="relative py-24 bg-[#07111f] text-white overflow-hidden">
+    <section id="skills" className="relative py-12 text-white">
       {/* Ambient background glow effects */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-[#ff7b54]/15 via-[#9b8cff]/15 to-[#6df4ff]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-[#38bdf8]/15 via-[#818cf8]/15 to-[#4f46e5]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
           <h2 className="mt-6 font-bebas text-5xl sm:text-6xl lg:text-7xl tracking-wide text-white">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff7b54] via-[#9b8cff] to-[#6df4ff]">TECH STACK</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#4f46e5]">TECH STACK</span>
           </h2>
         </div>
 
@@ -399,64 +438,53 @@ export function SkillsSection() {
                 key={tab.id}
                 type="button"
                 onClick={() => handleTabClick(tab.id)}
-                className={`rounded-xs border-white/10 px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                  activeTab === tab.id
-                    ? 'bg-indigo-300 text-slate-950 '
-                    : 'text-white/60 hover:text-white hover:bg-white/5'
-                }`}
+                className={`rounded-xs border-white/10 px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${activeTab === tab.id
+                  ? 'bg-indigo-300 text-slate-950 '
+                  : 'text-white/60 hover:text-white hover:bg-white/5'
+                  }`}
               >
                 {tab.label}
               </button>
             ))}
           </div>
+
+          {/* Carousel Controls */}
+          <div className="flex items-center justify-center gap-4 mt-4 md:mt-0">
+            <button 
+              onClick={scrollPrev}
+              disabled={!canScrollLeft}
+              className="p-3 rounded-full bg-white/5 hover:bg-white/10 text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              aria-label="Previous skills"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button 
+              onClick={scrollNext}
+              disabled={!canScrollRight}
+              className="p-3 rounded-full bg-white/5 hover:bg-white/10 text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              aria-label="Next skills"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
         </div>
 
-        {/* Skills Cards Grid - Tailwind-only card layout with borders */}
-        <div ref={gridRef} className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredSkills.map((skill) => {
-            const Icon = skill.Icon
-            const currentHeart = heartState[skill.id] ?? { liked: false, count: 224 }
-
-            return (
-              <div className="card w-full bg-base-100 shadow-sm" key={skill.id}>
-                <div className="card-body">
-                  <span className="badge badge-xs badge-warning">{skill.badge}</span>
-                  <div className="flex justify-between">
-                    <h2 className="text-3xl font-bold">{skill.name}</h2>
-                    <span className="text-xl">{skill.experience}</span>
-                  </div>
-                  <ul className="mt-6 flex flex-col gap-2 text-xs">
-                    {skill.highlights.slice(0, 4).map((highlight, index) => (
-                      <li key={index}>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                    <li className="opacity-50">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-base-content/50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                      <span className="line-through">{skill.mutedItem}</span>
-                    </li>
-                    <li className="opacity-50">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-base-content/50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                      <span className="line-through">{skill.projectsCount}+ expert implementations</span>
-                    </li>
-                  </ul>
-                  <div className="mt-6">
-                    <button
-                      type="button"
-                      onClick={() => handleHeartClick(skill.id)}
-                      className="btn bg-indigo-300 text-black rounded-xs btn-block transition-colors duration-300 hover:bg-indigo-400 hover:text-red-600 flex items-center justify-center gap-2"
-                      aria-pressed={currentHeart.liked}
-                    >
-                      <span className="text-lg leading-none">{currentHeart.liked ? '♥' : '♡'}</span>
-                      <span className="text-sm font-semibold">Send a Heart</span>
-                      <span className="text-sm font-semibold">{currentHeart.count}</span>
-                    </button>
-                  </div>
-                </div>
+        {/* Skills Carousel */}
+        <div className="relative mt-8">
+          <div 
+            ref={carouselRef}
+            onScroll={checkScroll}
+            className="flex gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          >
+            {filteredSkills.map((skill) => (
+              <div 
+                key={skill.id} 
+                className="snap-start shrink-0 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333333%-1.333rem)]"
+              >
+                {renderCard(skill, false)}
               </div>
-            )
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>
