@@ -46,7 +46,7 @@ export function ProjectsSection() {
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <h2 className="mt-6 font-bebas text-5xl tracking-wide text-white sm:text-6xl lg:text-7xl">
             <span className="bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#4f46e5] bg-clip-text text-transparent">
-              COMPLETED PROJECTS
+              PROJECTS
             </span>
           </h2>
         </div>
@@ -55,12 +55,12 @@ export function ProjectsSection() {
           {projectsData.map((project) => (
             <article key={project.title} className="card w-full bg-base-100 shadow-sm">
               <div className="card-body">
-                <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2 sm:flex-nowrap">
-                  <h3 className="font-bebas text-[2rem] leading-none text-white sm:text-[2.35rem]">{project.title}</h3>
-                  <span className="shrink-0 font-roboto-condensed text-[10px] font-semibold uppercase tracking-[0.3em] text-[#818cf8] sm:mt-2">
-                    {project.duration}
-                  </span>
+                <div>
+                  <span className="badge badge-xs badge-warning">{project.duration}</span>
                 </div>
+                <h3 className="mt-2 font-bebas text-[2rem] leading-none text-white sm:text-[2.35rem]">
+                  {project.title}
+                </h3>
 
                 <p className="mt-4 text-[15px] leading-7 text-white/82">{project.description}</p>
 
